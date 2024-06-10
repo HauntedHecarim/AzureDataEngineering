@@ -39,9 +39,12 @@ Task 2 - Design a star schema
 [Star Schema.pdf](https://github.com/user-attachments/files/15758134/Star.Schema.pdf)
 
 Task 3 - Create the data in PostgresSQL
-![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/99a2b0b3-971a-4c87-aa47-8a406e1e0bf1)
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/1adacc54-cb68-4762-be97-04ed9ed97e92)
+
 
 The data has been created in PostgresSQL and confirmed to have been created using pgAdmin
+
+The tables contain the correct information and headers as expected when queried
 
 Task 4 - EXTRACT the data from PostgreSQL
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/e448ae7a-f0c6-4231-9622-f03863aecbad)
