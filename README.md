@@ -31,3 +31,9 @@ Helpful Hints
 When you use the ingest wizard, it uses the copy tool to EXTRACT into Blob storage. During this process, Azure Synapse automatically creates links for the data lake. When you start the SQL script wizard to LOAD data into external tables, start the wizard from the data lake node, not the blob storage node.
 When using the external table wizard, you may need to modify the script to put dates into a varchar field in staging rather than using the datetime data type. You can convert them during the transform step.
 When using the external table wizard, if you rename the columns in your script, it will help you when writing transform scripts. By default, they are named [C1], [C2], etc. which are not useful column names in staging.
+
+Task 1 - Creating the Azure Database and Synapse workspace
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/b494224f-4f11-4830-b47e-2c5b8ef2f362)
+
+
+
