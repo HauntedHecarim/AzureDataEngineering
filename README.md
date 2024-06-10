@@ -36,7 +36,9 @@ Task 1 - Creating the Azure Database and Synapse workspace
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/b494224f-4f11-4830-b47e-2c5b8ef2f362)
 
 Task 2 - Design a star schema
-[Star Schema.pdf](https://github.com/user-attachments/files/15758134/Star.Schema.pdf)
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/f0b4dc38-4258-44eb-870f-17654ab6476c)
+
+Star schema was created. PDF located in file section.
 
 Task 3 - Create the data in PostgresSQL
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/1adacc54-cb68-4762-be97-04ed9ed97e92)
