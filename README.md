@@ -35,5 +35,22 @@ When using the external table wizard, if you rename the columns in your script, 
 Task 1 - Creating the Azure Database and Synapse workspace
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/b494224f-4f11-4830-b47e-2c5b8ef2f362)
 
+Task 2 - Design a star schema
+[Star Schema.pdf](https://github.com/user-attachments/files/15758134/Star.Schema.pdf)
+
+Task 3 - Create the data in PostgresSQL
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/99a2b0b3-971a-4c87-aa47-8a406e1e0bf1)
+
+The data has been created in PostgresSQL and confirmed to have been created using pgAdmin
+
+Task 4 - EXTRACT the data from PostgreSQL
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/e448ae7a-f0c6-4231-9622-f03863aecbad)
+
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/67659e15-369f-48e0-92b2-70e1056e957a)
+
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/af6770b5-2dce-4d50-b567-ae51c34d9e89)
+
+
+
 
 
