@@ -50,7 +50,8 @@ Task 4 - EXTRACT the data from PostgreSQL
 
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/af6770b5-2dce-4d50-b567-ae51c34d9e89)
 
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/97ba501e-0ae3-48b4-83bd-1f3d20bf813a)
 
-
+Task 5 - LOAD the data into external tables in the data warehouse
 
 
