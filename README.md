@@ -58,4 +58,11 @@ Task 4 - EXTRACT the data from PostgreSQL
 
 Task 5 - LOAD the data into external tables in the data warehouse
 
+![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/58524fc9-8399-44e4-a8c7-66d0b5dba164)
+
+Task 6: TRANSFORM the data to the star schema using CETAS
+Write SQL scripts to transform the data from the staging tables to the final star schema you designed.
+
+The serverless SQL pool won't allow you to create persistent tables in the database, as it has no local storage. So, use CREATE EXTERNAL TABLE AS SELECT (CETAS) instead. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
+
 
