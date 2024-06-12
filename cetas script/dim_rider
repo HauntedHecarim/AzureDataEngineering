@@ -1,0 +1,25 @@
+-- Drop the external table if it exists
+IF OBJECT_ID('dbo.dim_publicrider', 'ET') IS NOT NULL
+BEGIN
+    DROP EXTERNAL TABLE dbo.dim_publicrider;
+END
+
+-- Create the external table
+CREATE EXTERNAL TABLE [dbo].[dim_publicrider] WITH (
+    LOCATION = 'dim_rider',
+    DATA_SOURCE = [bikesharelakefile_bikesharelake_dfs_core_windows_net],
+    FILE_FORMAT = [SynapseDelimitedTextFormat]
+) 
+AS SELECT 
+    rider_id,
+    First_Name,
+    Last_Name,
+    Address,
+    Birthday,
+    Account_start_date,
+    Account_end_date,
+    Is_member
+FROM dim_publicrider;
+
+-- Verify the output
+SELECT TOP 10 * FROM dbo.dim_publicrider;
