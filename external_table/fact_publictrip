@@ -1,0 +1,35 @@
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
+	CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
+	WITH ( FORMAT_TYPE = DELIMITEDTEXT ,
+	       FORMAT_OPTIONS (
+			 FIELD_TERMINATOR = ',',
+			 USE_TYPE_DEFAULT = FALSE
+			))
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'bikesharelakefile_bikesharelake_dfs_core_windows_net') 
+	CREATE EXTERNAL DATA SOURCE [bikesharelakefile_bikesharelake_dfs_core_windows_net] 
+	WITH (
+		LOCATION = 'abfss://bikesharelakefile@bikesharelake.dfs.core.windows.net' 
+	)
+GO
+
+CREATE EXTERNAL TABLE dbo.fact_publictrip (
+	[C1] nvarchar(4000),
+	[C2] nvarchar(4000),
+	[C3] nvarchar(4000),
+	[C4] nvarchar(4000),
+	[C5] nvarchar(4000),
+	[C6] nvarchar(4000),
+	[C7] nvarchar(4000)
+	)
+	WITH (
+	LOCATION = 'publictrip.txt',
+	DATA_SOURCE = [bikesharelakefile_bikesharelake_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+	)
+GO
+
+
+SELECT TOP 100 * FROM dbo.fact_publictrip
+GO
