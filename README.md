@@ -53,9 +53,10 @@ Task 4 - EXTRACT the data from PostgreSQL
 
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/67659e15-369f-48e0-92b2-70e1056e957a)
 
-![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/af6770b5-2dce-4d50-b567-ae51c34d9e89)
+![Azure PostgreSQL pipeline to Blob](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/287e7b72-a3a9-4009-9a8a-969dbdeded86)
 
-![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/97ba501e-0ae3-48b4-83bd-1f3d20bf813a)
+![Files in Blob](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/4244cf1c-24ad-4066-b306-2916c5bdfa38)
+
 
 Task 5 - LOAD the data into external tables in the data warehouse
 
