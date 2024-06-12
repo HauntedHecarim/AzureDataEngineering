@@ -1,15 +1,16 @@
--- CREATE dim_payment TABLE
-IF OBJECT_ID('dbo.fact_publictrip') IS NOT NULL
+-- Drop the external table if it exists
+IF OBJECT_ID('dbo.fact_publictrip', 'ET') IS NOT NULL
 BEGIN
-    DROP EXTERNAL TABLE dbo.fact_publictrip
+    DROP EXTERNAL TABLE dbo.fact_publictrip;
 END
 
-CREATE EXTERNAL TABLE [dbo].[fact_trip] WITH(
+-- Create the external table
+CREATE EXTERNAL TABLE [dbo].[fact_trip] WITH (
     LOCATION = 'fact_trip',
     DATA_SOURCE = [bikesharelakefile_bikesharelake_dfs_core_windows_net],
     FILE_FORMAT = [SynapseDelimitedTextFormat]
-) AS (
-    SELECT 
+) 
+AS SELECT 
     st.trip_id,
     st.rider_id,
     st.rideable_type,
@@ -19,10 +20,9 @@ CREATE EXTERNAL TABLE [dbo].[fact_trip] WITH(
     DATEDIFF(DAY, sr.birthday, st.start_at) / 365 AS rider_age,
     st.start_at,
     st.ended_at
-
 FROM 
     fact_publictrip st
-JOIN dim_publicrider sr ON sr.rider_id = st.rider_id
-);
+JOIN dim_publicrider sr ON sr.rider_id = st.rider_id;
 
+-- Query the external table
 SELECT TOP 10 * FROM dbo.fact_publictrip;
