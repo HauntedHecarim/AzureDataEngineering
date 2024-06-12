@@ -1,48 +1,23 @@
--- Step 1: Create External File Format (if it does not already exist)
-IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
-    CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
-    WITH ( 
-        FORMAT_TYPE = DELIMITEDTEXT,
-        FORMAT_OPTIONS (
-            FIELD_TERMINATOR = ',',
-            STRING_DELIMITER = '"',
-            FIRST_ROW = 2,
-            USE_TYPE_DEFAULT = TRUE
-        )
-    );
-GO
+-- Drop the external table if it exists
+IF OBJECT_ID('dbo.fact_publicpayment', 'ET') IS NOT NULL
+BEGIN
+    DROP EXTERNAL TABLE dbo.fact_publicpayment;
+END
 
--- Step 2: Create External Data Source (if it does not already exist)
-IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'bikesharelakefile_bikesharelake_dfs_core_windows_net') 
-    CREATE EXTERNAL DATA SOURCE [bikesharelakefile_bikesharelake_dfs_core_windows_net] 
-    WITH (
-        LOCATION = 'abfss://bikesharelakefile@bikesharelake.dfs.core.windows.net' 
-    );
-GO
-
--- Step 3: Create CETAS for the joined data without dropping existing tables
-CREATE EXTERNAL TABLE dbo.fact_publicpayment
-WITH(
-    LOCATION = 'fact_payment', -- This path will be created in your Data Lake Storage if it doesn't exist
+-- Create the external table
+CREATE EXTERNAL TABLE [dbo].[fact_publicpayment] WITH (
+    LOCATION = 'fact_payment',
     DATA_SOURCE = [bikesharelakefile_bikesharelake_dfs_core_windows_net],
     FILE_FORMAT = [SynapseDelimitedTextFormat]
-) AS
-SELECT
-    ft.trip_id,
-    ft.rider_id,
-    ft.start_time,
-    ft.end_time,
-    ft.start_station_id,
-    ft.end_station_id,
-    fp.payment_id,
-    fp.amount,
-    fp.date
+) 
+AS SELECT
+    sp.payment_id,    
+    sp.rider_id,
+    sp.amount,
+    sp.date
 FROM 
-    dbo.fact_publictrip ft
-JOIN dbo.dim_publicrider dr ON dr.rider_id = ft.rider_id
-JOIN dbo.fact_publicpayment fp ON fp.rider_id = dr.rider_id;
-GO
+    fact_publicpayment sp
+    JOIN dim_publicrider sr ON sr.rider_id = sp.rider_id;
 
--- Verify the data in the fact_trip_payment table
-SELECT TOP 10 * FROM dbo.fact_trip_payment;
-GO
+-- Query the external table
+SELECT TOP 10 * FROM dbo.fact_publicpayment;
