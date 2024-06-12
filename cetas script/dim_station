@@ -1,0 +1,22 @@
+-- Drop the external table if it exists
+IF OBJECT_ID('dbo.dim_publicstation', 'ET') IS NOT NULL
+BEGIN
+    DROP EXTERNAL TABLE dbo.dim_publicstation;
+END
+
+-- Create the external table
+CREATE EXTERNAL TABLE [dbo].[dim_publicstation] WITH (
+    LOCATION = 'dim_station',
+    DATA_SOURCE = [bikesharelakefile_bikesharelake_dfs_core_windows_net],
+    FILE_FORMAT = [SynapseDelimitedTextFormat]
+) 
+AS SELECT
+    station_id,
+    name,
+    latitude,
+    longitude
+FROM 
+    dim_publicstation;
+
+-- Query the external table
+SELECT TOP 10 * FROM dbo.dim_publicstation;
