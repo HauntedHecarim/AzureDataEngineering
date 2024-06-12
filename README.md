@@ -51,8 +51,6 @@ The tables contain the correct information and headers as expected when queried
 Task 4 - EXTRACT the data from PostgreSQL
 ![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/e448ae7a-f0c6-4231-9622-f03863aecbad)
 
-![image](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/67659e15-369f-48e0-92b2-70e1056e957a)
-
 ![Azure PostgreSQL pipeline to Blob](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/287e7b72-a3a9-4009-9a8a-969dbdeded86)
 
 ![Files in Blob](https://github.com/HauntedHecarim/AzureDataEngineering/assets/10834793/4244cf1c-24ad-4066-b306-2916c5bdfa38)
